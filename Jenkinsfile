@@ -1,9 +1,33 @@
 pipeline {
     agent any
     stages {
-        stage('Hello World') {
+        stage('Build') {
             steps {
-                sh 'echo Hello World'
+                echo 'Building...'
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Testing...'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying...'
+            }
+        }
+        stage('Parallel Stage') {
+            parallel {
+                stage('Parallel Job 1') {
+                    steps {
+                        echo 'Running Parallel Job 1'
+                    }
+                }
+                stage('Parallel Job 2') {
+                    steps {
+                        echo 'Running Parallel Job 2'
+                    }
+                }
             }
         }
     }
