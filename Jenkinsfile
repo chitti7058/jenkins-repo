@@ -10,7 +10,7 @@ pipeline {
             when {
                 branch 'master'
             }
-            failFast true
+            failFast false
             parallel {
                 stage('stage one') {
                     agent {
